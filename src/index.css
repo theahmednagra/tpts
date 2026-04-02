@@ -1,10 +1,12 @@
+@import url('https://googleapis.com');
 @import "tailwindcss";
 @config "../tailwind.config.js";
 
 @layer base {
   * {
-    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+    font-family: 'Red Hat Text', 'Encode Sans', sans-serif;
   }
+
   body {
     @apply antialiased;
   }

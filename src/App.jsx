@@ -87,9 +87,9 @@ export default function AlqamorPremiumUI() {
 
 	// Social media links
 	const socialLinks = [
-		{ name: "WhatsApp", color: "bg-green-600", hoverColor: "hover:bg-green-700", icon: WhatsappIcon, link: "https://wa.me/971503578525" },
 		{ name: "Facebook", color: "bg-blue-600", hoverColor: "hover:bg-blue-700", icon: Facebook, link: "https://facebook.com/tpts.dxb" },
 		{ name: "Instagram", color: "bg-pink-600", hoverColor: "hover:bg-pink-700", icon: Instagram, link: "https://instagram.com/tpts.dxb" },
+		{ name: "WhatsApp", color: "bg-green-600", hoverColor: "hover:bg-green-700", icon: WhatsappIcon, link: "https://wa.me/971503578525" },
 	];
 
 	// Smooth scroll helper
@@ -181,7 +181,7 @@ export default function AlqamorPremiumUI() {
 	];
 
 	return (
-		<div className="min-h-screen bg-white text-slate-900 font-sans">
+		<div className="min-h-screen bg-white text-slate-900 font-trebuche">
 			{/* NAV */}
 			<header className="fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
@@ -260,7 +260,7 @@ export default function AlqamorPremiumUI() {
 
 			<main className="pt-16 sm:pt-20">
 				{/* HERO */}
-				<section id="home" className="max-w-7xl mx-auto mt-2 sm:mt-6 px-4 sm:px-6 py-6 sm:py-8 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+				<section id="home" className="max-w-7xl mx-auto mt-4 sm:mt-8 px-4 sm:px-6 py-6 sm:py-8 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 					<div>
 						<motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="inline-block mb-4 px-4 py-2 bg-sky-50 text-sky-700 rounded-full text-sm font-medium">
 							Trusted by 500+ UAE Clients
@@ -284,12 +284,12 @@ export default function AlqamorPremiumUI() {
 						</div>
 
 						{/* Social Media Buttons */}
-						<div className="mt-6 sm:mt-8">
-							<p className="text-sm text-slate-600 mb-3 font-medium">
-								Connect with us
+						<div className="mt-8 sm:mt-8">
+							<p className="text-sm text-slate-600 mb-4 font-medium text-center sm:text-left">
+								Connect with us through our digital spaces
 							</p>
 
-							<div className="flex flex-wrap items-center gap-2 sm:gap-4 justify-center sm:justify-start">
+							<div className="flex flex-wrap items-center gap-4 justify-center sm:justify-start">
 								{socialLinks.map((social) => (
 									<motion.a
 										key={social.name}
@@ -298,7 +298,7 @@ export default function AlqamorPremiumUI() {
 										rel="noopener noreferrer"
 										whileHover={{ scale: 1.05 }}
 										whileTap={{ scale: 0.95 }}
-										className={`${social.color} ${social.hoverColor} text-white px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg font-medium flex items-center gap-1 transition-all shadow-md flex-1 sm:flex-none justify-center min-w-[120px] sm:min-w-0`}
+										className={`${social.color} ${social.hoverColor} text-white px-5 py-3 rounded-lg font-medium flex items-center gap-2 transition-all shadow-md flex-1 sm:flex-none justify-center min-w-[120px] sm:min-w-0`}
 									>
 										<social.icon className="w-5 h-5 shrink-0" />
 										<span className="whitespace-nowrap">{social.name}</span>
@@ -314,12 +314,12 @@ export default function AlqamorPremiumUI() {
 							initial={{ opacity: 0, scale: 0.98 }}
 							animate={{ opacity: 1, scale: 1 }}
 							transition={{ delay: 0.06 }}
-							className="mt-6 sm:mt-8 w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-2xl bg-slate-100"
+							className="mt-4 sm:mt-8 w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-2xl bg-slate-100"
 						>
 							<img src={heroImg} alt="TPTS Professional Services" className="w-full h-full object-cover" />
 						</motion.div>
 
-						<div className="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-4 sm:gap-8 text-[13px] text-slate-600">
+						<div className="mt-6 flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-slate-600">
 							<div className="flex items-center gap-2">
 								<CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
 								<div>Licensed & Insured</div>
