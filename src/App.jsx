@@ -289,7 +289,7 @@ export default function AlqamorPremiumUI() {
 								Connect with us:
 							</p>
 
-							<div className="flex flex-wrap items-center gap-3 sm:gap-4 justify-center sm:justify-start">
+							<div className="flex flex-wrap items-center gap-2 sm:gap-4 justify-center sm:justify-start">
 								{socialLinks.map((social) => (
 									<motion.a
 										key={social.name}
@@ -298,7 +298,7 @@ export default function AlqamorPremiumUI() {
 										rel="noopener noreferrer"
 										whileHover={{ scale: 1.05 }}
 										whileTap={{ scale: 0.95 }}
-										className={`${social.color} ${social.hoverColor} text-white px-4 sm:px-5 py-3 rounded-lg font-medium flex items-center gap-2 transition-all shadow-md flex-1 sm:flex-none justify-center min-w-[120px] sm:min-w-0`}
+										className={`${social.color} ${social.hoverColor} text-white px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg font-medium flex items-center gap-1 transition-all shadow-md flex-1 sm:flex-none justify-center min-w-[120px] sm:min-w-0`}
 									>
 										<social.icon className="w-5 h-5 shrink-0" />
 										<span className="whitespace-nowrap">{social.name}</span>
