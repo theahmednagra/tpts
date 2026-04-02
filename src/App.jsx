@@ -260,7 +260,7 @@ export default function AlqamorPremiumUI() {
 
 			<main className="pt-16 sm:pt-20">
 				{/* HERO */}
-				<section id="home" className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+				<section id="home" className="max-w-7xl mx-auto mt-2 sm:mt-6 px-4 sm:px-6 py-6 sm:py-8 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 					<div>
 						<motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="inline-block mb-4 px-4 py-2 bg-sky-50 text-sky-700 rounded-full text-sm font-medium">
 							Trusted by 500+ UAE Clients
@@ -285,8 +285,11 @@ export default function AlqamorPremiumUI() {
 
 						{/* Social Media Buttons */}
 						<div className="mt-6 sm:mt-8">
-							<p className="text-sm text-slate-600 mb-3 font-medium">Connect with us:</p>
-							<div className="flex flex-wrap gap-3">
+							<p className="text-sm text-slate-600 mb-3 font-medium text-center sm:text-left">
+								Connect with us:
+							</p>
+
+							<div className="flex flex-wrap items-center gap-3 sm:gap-4 justify-center sm:justify-start">
 								{socialLinks.map((social) => (
 									<motion.a
 										key={social.name}
@@ -295,16 +298,28 @@ export default function AlqamorPremiumUI() {
 										rel="noopener noreferrer"
 										whileHover={{ scale: 1.05 }}
 										whileTap={{ scale: 0.95 }}
-										className={`${social.color} ${social.hoverColor} text-white px-5 py-2.5 rounded-lg font-medium flex items-center gap-2 transition-all shadow-md`}
+										className={`${social.color} ${social.hoverColor} text-white px-4 sm:px-5 py-3 rounded-lg font-medium flex items-center gap-2 transition-all shadow-md flex-1 sm:flex-none justify-center min-w-[120px] sm:min-w-0`}
 									>
-										<social.icon className="w-5 h-5" />
-										<span className="text-sm">{social.name}</span>
+										<social.icon className="w-5 h-5 shrink-0" />
+										<span className="whitespace-nowrap">{social.name}</span>
 									</motion.a>
 								))}
 							</div>
 						</div>
+					</div>
 
-						<div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-slate-600">
+					{/* Hero Image */}
+					<div>
+						<motion.div
+							initial={{ opacity: 0, scale: 0.98 }}
+							animate={{ opacity: 1, scale: 1 }}
+							transition={{ delay: 0.06 }}
+							className="mt-6 sm:mt-8 w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-2xl bg-slate-100"
+						>
+							<img src={heroImg} alt="TPTS Professional Services" className="w-full h-full object-cover" />
+						</motion.div>
+
+						<div className="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-4 sm:gap-8 text-[13px] text-slate-600">
 							<div className="flex items-center gap-2">
 								<CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
 								<div>Licensed & Insured</div>
@@ -319,19 +334,10 @@ export default function AlqamorPremiumUI() {
 							</div>
 						</div>
 					</div>
-
-					<motion.div
-						initial={{ opacity: 0, scale: 0.98 }}
-						animate={{ opacity: 1, scale: 1 }}
-						transition={{ delay: 0.06 }}
-						className="w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-2xl bg-slate-100 flex items-center justify-center"
-					>
-						<img src={heroImg} alt="TPTS Professional Services" className="w-full h-full object-cover" />
-					</motion.div>
 				</section>
 
 				{/* ABOUT */}
-				<section id="about" className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 bg-gradient-to-b from-white to-slate-50">
+				<section id="about" className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 bg-gradient-to-b from-white to-slate-50">
 					<div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 						<div>
 							<div className="inline-block mb-3 px-3 py-1 bg-sky-50 text-sky-700 rounded-full text-xs font-semibold uppercase tracking-wide">
@@ -410,7 +416,7 @@ export default function AlqamorPremiumUI() {
 				</section>
 
 				{/* SERVICES */}
-				<section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 bg-slate-50">
+				<section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 bg-slate-50">
 					<div className="text-center mb-12">
 						<div className="inline-block mb-3 px-3 py-1 bg-sky-50 text-sky-700 rounded-full text-xs font-semibold uppercase tracking-wide">
 							Our Services
@@ -426,13 +432,16 @@ export default function AlqamorPremiumUI() {
 					<div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
 						{services.map((s, idx) => (
 							<motion.div
-								key={s.name}
-								initial={{ opacity: 0, y: 20 }}
-								whileInView={{ opacity: 1, y: 0 }}
+								key={`${s}-${idx}`} // Unique key
+								initial={{ opacity: 0, scale: 0.9 }}
+								whileInView={{ opacity: 1, scale: 1 }}
 								viewport={{ once: true }}
-								transition={{ delay: idx * 0.05 }}
-								whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
-								className="bg-white p-6 rounded-2xl border-2 border-gray-100 hover:border-sky-600 transition-all"
+								transition={{
+									delay: idx * 0.05,
+									scale: { type: "tween", stiffness: 100 }
+								}}
+								whileHover={{ scale: 1.05 }}
+								className="p-5 rounded-2xl border-2 border-gray-200 bg-white hover:border-sky-500 hover:shadow-lg focus:border-sky-500"
 							>
 								<div className="flex items-start gap-4">
 									<div className="p-3 rounded-xl bg-gradient-to-br from-sky-50 to-sky-100 text-sky-600 flex-shrink-0">
@@ -462,7 +471,7 @@ export default function AlqamorPremiumUI() {
 				</section>
 
 				{/* LOCATIONS */}
-				<section id="locations" className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+				<section id="locations" className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
 					<div className="text-center mb-12">
 						<div className="inline-block mb-3 px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full text-xs font-semibold uppercase tracking-wide">
 							Service Coverage
@@ -478,13 +487,17 @@ export default function AlqamorPremiumUI() {
 					<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
 						{locations.map((l, idx) => (
 							<motion.div
-								key={l}
+								key={`${l}-${idx}`} // Unique key
 								initial={{ opacity: 0, scale: 0.9 }}
 								whileInView={{ opacity: 1, scale: 1 }}
 								viewport={{ once: true }}
-								transition={{ delay: idx * 0.05 }}
+								transition={{
+									delay: idx * 0.05,
+									scale: { type: "spring", stiffness: 300 }
+								}}
 								whileHover={{ scale: 1.05 }}
-								className="p-5 rounded-2xl border-2 border-gray-200 bg-white hover:border-emerald-600 hover:shadow-lg transition-all cursor-pointer"
+								whileTap={{ scale: 0.95 }}
+								className="p-5 rounded-2xl border-2 border-gray-200 bg-white hover:border-emerald-500 hover:shadow-lg focus:border-emerald-500"
 							>
 								<div className="flex flex-col items-center text-center gap-3">
 									<div className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center text-emerald-600">
@@ -509,7 +522,7 @@ export default function AlqamorPremiumUI() {
 				</section>
 
 				{/* PROJECTS */}
-				<section id="projects" className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 bg-slate-50">
+				<section id="projects" className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 bg-slate-50">
 					<div className="text-center mb-12">
 						<div className="inline-block mb-3 px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-semibold uppercase tracking-wide">
 							Our Work
@@ -537,7 +550,6 @@ export default function AlqamorPremiumUI() {
 								whileInView={{ opacity: 1, y: 0 }}
 								viewport={{ once: true }}
 								transition={{ delay: n * 0.08 }}
-								whileHover={{ y: -8 }}
 								className="rounded-2xl overflow-hidden bg-white border-2 border-gray-200 hover:border-purple-600 transition-all shadow-lg group"
 							>
 								<img src={project.image} alt="" className="w-full h-56 group-hover:scale-105 transition-transform duration-300" />
@@ -553,7 +565,7 @@ export default function AlqamorPremiumUI() {
 				</section>
 
 				{/* REVIEWS */}
-				<section id="reviews" className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+				<section id="reviews" className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
 					<div className="text-center mb-12">
 						<div className="inline-block mb-3 px-3 py-1 bg-amber-50 text-amber-700 rounded-full text-xs font-semibold uppercase tracking-wide">
 							Client Feedback
@@ -574,7 +586,6 @@ export default function AlqamorPremiumUI() {
 								whileInView={{ opacity: 1, y: 0 }}
 								viewport={{ once: true }}
 								transition={{ delay: i * 0.1 }}
-								whileHover={{ y: -6 }}
 								className="p-6 sm:p-8 rounded-2xl bg-white border-2 border-gray-200 hover:border-amber-600 hover:shadow-xl transition-all"
 							>
 								<div className="flex text-amber-500 mb-4">
@@ -612,7 +623,7 @@ export default function AlqamorPremiumUI() {
 				</section>
 
 				{/* CONTACT */}
-				<section id="contact" className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 bg-gradient-to-b from-slate-50 to-white">
+				<section id="contact" className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 bg-gradient-to-b from-slate-50 to-white">
 					<div className="text-center mb-12">
 						<div className="inline-block mb-3 px-3 py-1 bg-sky-50 text-sky-700 rounded-full text-xs font-semibold uppercase tracking-wide">
 							Get In Touch
@@ -706,7 +717,7 @@ export default function AlqamorPremiumUI() {
 										name="from_name"
 										disabled={formStatus.loading}
 										className="px-4 py-3 border-2 border-gray-200 rounded-xl w-full outline-none focus:border-sky-500 transition-colors duration-300 disabled:bg-gray-50 disabled:cursor-not-allowed"
-										placeholder="John Doe"
+										placeholder="Your Name"
 									/>
 								</div>
 								<div>
@@ -730,7 +741,7 @@ export default function AlqamorPremiumUI() {
 									name="reply_to"
 									disabled={formStatus.loading}
 									className="px-4 py-3 border-2 border-gray-200 rounded-xl w-full outline-none focus:border-sky-500 transition-colors duration-300 disabled:bg-gray-50 disabled:cursor-not-allowed"
-									placeholder="john@example.com"
+									placeholder="user@example.com"
 								/>
 							</div>
 
