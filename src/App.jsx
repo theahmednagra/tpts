@@ -285,8 +285,8 @@ export default function AlqamorPremiumUI() {
 
 						{/* Social Media Buttons */}
 						<div className="mt-6 sm:mt-8">
-							<p className="text-sm text-slate-600 mb-3 font-medium text-center sm:text-left">
-								Connect with us:
+							<p className="text-sm text-slate-600 mb-3 font-medium">
+								Connect with us
 							</p>
 
 							<div className="flex flex-wrap items-center gap-2 sm:gap-4 justify-center sm:justify-start">
