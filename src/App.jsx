@@ -186,7 +186,7 @@ export default function AlqamorPremiumUI() {
 			<header className="fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
 					<a onClick={() => scrollTo("home")} className="flex items-center gap-2 sm:gap-3 cursor-pointer">
-						<img src={logo} alt="TPTS Logo" className="h-8 sm:h-9" />
+						<img src={logo} alt="Top Performance Technical Services | Dubai" className="h-8 sm:h-9" />
 						<div className="text-xs hidden sm:block">
 							<div className="font-semibold text-slate-800">Top Performance Technical Services</div>
 							<div className="text-slate-600">Maintenance & Contracting — UAE</div>
@@ -813,7 +813,7 @@ export default function AlqamorPremiumUI() {
 					<div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
 						<div>
 							<div className="flex items-center gap-2 mb-4">
-								<img src={logo} alt="TPTS Logo" className="h-8 brightness-0 invert" />
+								<img src={logo} alt="Top Performance Technical Services | Dubai" className="h-8 brightness-0 invert" />
 							</div>
 							<h3 className="font-bold text-lg mb-2">Top Performance Technical Services</h3>
 							<p className="text-slate-400 text-sm leading-relaxed">
